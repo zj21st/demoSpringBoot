@@ -3,6 +3,7 @@
  */
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+	
+	@Value("${book.name}")
+	private String bookname;
 
 	@RequestMapping("/hello")
 	public String index() {
-		return "Hello World";
+		return "Hello World  "+bookname;
 	}
 	
 	
